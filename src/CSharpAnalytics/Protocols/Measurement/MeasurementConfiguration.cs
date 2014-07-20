@@ -127,7 +127,7 @@ namespace CSharpAnalytics
 
         private static string GetAttribute<T>(Func<T, string> selector) where T : Attribute
         {
-            var attribute = System.Reflection.Assembly.GetEntryAssembly()
+            var attribute = System.Reflection.Assembly.GetExecutingAssembly()
                 .GetCustomAttributes(true)
                 .OfType<T>()
                 .FirstOrDefault();
