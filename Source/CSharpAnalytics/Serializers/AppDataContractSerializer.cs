@@ -31,9 +31,9 @@ namespace CSharpAnalytics.Serializers
         {
             var appDataPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData);
 
-            var customAttributes = Assembly.GetEntryAssembly().GetCustomAttributes(typeof(AssemblyCompanyAttribute), false);
-            var folderName = customAttributes.Length > 0
-                ? ((AssemblyCompanyAttribute)customAttributes[0]).Company
+            var customAttributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyCompanyAttribute), false);
+            var folderName = customAttributes.Length > 0 
+                ? ((AssemblyCompanyAttribute)customAttributes[0]).Company 
                 : "CSharpAnalytics";
 
             return Path.Combine(appDataPath, folderName);
